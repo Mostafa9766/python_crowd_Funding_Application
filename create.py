@@ -9,7 +9,7 @@ def create(usr_id):
     totaltarget = input("Total target : ")
     starttime = input("Start Date (dd/mm/yyyy) : ")
     endtime = input("End Date (dd/mm/yyyy) : ")
-
+#------------------------validate date format-----------------------------
     try:
         validate_start = time.strptime(starttime, '%d/%m/%Y')
         validate_end = time.strptime(endtime, '%d/%m/%Y')

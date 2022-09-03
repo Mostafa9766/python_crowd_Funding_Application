@@ -1,23 +1,25 @@
 #!/bin/python
 def menu(usr_id):
-    print("\n\n 1) Create Project \n 2) View All Projects \n 3) Edit Project \n 4) Delete Project \n 5) Search For Project")
+    print("\n\n 1) Create Project \n 2) View All Projects \n 3) Edit Project \n 4) Delete Project \n 5) Search For Project \n 6)Log Out and  Back to exit ")
 
     choice = input("\nChoose from menu: \n")
     if choice == "1":
         from create import create
         create(usr_id)
     elif choice == "2":
-        from view import view
+        from functions import view
         view(usr_id)
     elif choice == "3":
-        from edit import edit
+        from functions import edit
         edit(usr_id)
     elif choice == "4":
-        from delete import delete
+        from functions import delete
         delete(usr_id)
     elif choice == "5":
-        from search import search
+        from functions import search
         search(usr_id)
+    elif choice=="6":
+        from start_crowd_funding import start_app
     else:
         print("\nInvalid choice, try again: ")
-    return menu(usr_id)
+        return menu(usr_id)

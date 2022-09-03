@@ -1,7 +1,17 @@
 #!/bin/python
-import re
 
-from usr_id import *
+import re
+from main_menu import menu
+#________________________________________user id____________________________________
+
+def usr_id():
+    nid=open(r"usrs_data.txt", 'r')
+    lastid = len(nid.readlines())
+    nid.close()
+    return lastid+1
+
+#________________________________________registartion____________________________________
+
 def registartion_test(usr_id=usr_id()):
     first_name = input("First name : ")
     last_name = input("Last name : ")
@@ -33,7 +43,29 @@ def registartion_test(usr_id=usr_id()):
         else:
             print("Invalid Email, enter valid email")
             registartion_test(usr_id)
+    return start_app()
 
 
+#________________________________________login____________________________________
 
-    
+def login_test():
+    usr_email = input("Email : ")
+    password = input("Password : ")
+    try:
+        usr_file = open('usrs_data.txt','r')
+    except Exception as e:
+        print(e)
+    else:
+        usrs = usr_file.readlines()
+        for usr in usrs:
+            userdata = usr.strip("\n")
+            userinfo = userdata.split(":")
+
+            if userinfo[3] == usr_email and userinfo[4] == password:
+                print("logged in successfully")
+                menu(userinfo[0])
+                break
+        else:
+            print("invalid name or password ,try again but make sure you registered before: ")
+            return registartion_test()
+
