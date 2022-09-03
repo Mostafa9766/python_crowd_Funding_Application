@@ -1,5 +1,5 @@
 #!/bin/python
-from viewimport view
+from view import view
 import time
 
 def search(usr_id):
@@ -10,7 +10,7 @@ def search(usr_id):
         if validate_date:
             for p in projects:
                 userproject = p.strip("\n")
-                userproject = user_project.split(":")
+                userproject = userproject.split(":")
                 if userproject[4] == projectdate:
                     print(userproject)
         else:

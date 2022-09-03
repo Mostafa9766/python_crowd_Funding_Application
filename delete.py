@@ -2,11 +2,11 @@
 from view import view
 def delete(usr_id):
     projects = view(usr_id)
-    deletepro = input('\nenter project you want to delete : ')
+    deleteproject = input('\nenter project you want to delete : ')
     for project in projects:
         userproject = project.strip("\n")
         userproject = userproject.split(":")
-        if userproject[1] == deletpro and usr_id==userproject[0]:
+        if userproject[1] == deleteproject and usr_id==userproject[0]:
             projects.remove(project)
             break
     else:
