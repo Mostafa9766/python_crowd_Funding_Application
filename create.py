@@ -4,11 +4,11 @@ from main_menu import menu
 
 def create(usr_id):
 
-    title = input("Title : ")
-    details = input("Details : ")
-    totaltarget = input("Total target : ")
-    starttime = input("Start Date (dd/mm/yyyy) : ")
-    endtime = input("End Date (dd/mm/yyyy) : ")
+    title = input("Project Title : ")
+    details = input("Project Details : ")
+    totaltarget = input("Total target of Project : ")
+    starttime = input("Project Start Date (dd/mm/yyyy) : ")
+    endtime = input("Project End Date (dd/mm/yyyy) : ")
 #------------------------validate date format-----------------------------
     try:
         validate_start = time.strptime(starttime, '%d/%m/%Y')
@@ -23,7 +23,8 @@ def create(usr_id):
                 user_data = f"{usr_id}:{title}:{details}:{totaltarget}:{starttime}:{endtime}\n"
                 users_projects.write(user_data)
                 users_projects.close()
-                print('Your project is created successfully')
+                print('Your project was created successfully')
+                return menu(usr_id)
     except Exception as e:
         print(e)
         print("\nInvalid Data, enter valid data")

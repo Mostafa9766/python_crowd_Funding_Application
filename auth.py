@@ -1,5 +1,4 @@
 #!/bin/python
-
 import re
 from main_menu import menu
 #________________________________________user id____________________________________
@@ -13,6 +12,7 @@ def usr_id():
 #________________________________________registartion____________________________________
 
 def registartion_test(usr_id=usr_id()):
+    print("________________ Registartion  _______________________\n")
     first_name = input("First name : ")
     last_name = input("Last name : ")
     email = input("Email : ")
@@ -23,7 +23,8 @@ def registartion_test(usr_id=usr_id()):
     #validation
     if first_name.isdigit() or not first_name or first_name.isspace() or last_name.isdigit() or not last_name or last_name.isspace():
         print("\n name is invalid, please enter  a valid name")
-        registartion_test(usr_id)
+        return registartion_test(usr_id)
+
     else:
         regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
         if (re.search(regex, email)):
@@ -37,18 +38,19 @@ def registartion_test(usr_id=usr_id()):
                         user_data =  f"{usr_id}:{first_name}:{last_name}:{email}:{password}:{mobile_phone}\n"
                         usrs_data.write(user_data)
                         usrs_data.close()
+                        return login_test()
             else:
                 print("\nInvalid Password passwords don't match, please enter valid password")
-                registartion_test(usr_id)
+                return registartion_test(usr_id)
         else:
             print("Invalid Email, enter valid email")
-            registartion_test(usr_id)
-    return start_app()
+            return registartion_test(usr_id)
 
 
 #________________________________________login____________________________________
 
 def login_test():
+    print("_________________ Enter  Email  & Password to Login _______________________\n")
     usr_email = input("Email : ")
     password = input("Password : ")
     try:
@@ -67,5 +69,5 @@ def login_test():
                 break
         else:
             print("invalid name or password ,try again but make sure you registered before: ")
-            return registartion_test()
+            return login_test()
 

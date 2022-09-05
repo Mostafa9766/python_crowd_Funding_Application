@@ -10,14 +10,15 @@ def start_app():
     choice = input("what is your choice? : \n")
 
     if choice == "1":
-        print("_____________________________________\n")
+        print("---------------------------------_\n")
         registartion_test()
     elif choice == "2":
-        print("_____________________________________\n")
+        print("---------------------------------_\n")
         login_test()
     elif choice =="3":
+        print("________________________  Bye ^_*  ____________________________________\n\n")
         exit
     else:
-        print("________ Invalid Choice Bye ^_* _________\n\n")
+        print("____________________ Invalid Choice Bye ^_* __________________________\n\n")
         exit
 start_app()
